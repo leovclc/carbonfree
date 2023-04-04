@@ -60,6 +60,7 @@ public class DisplayEmissionService {
             displayCity.setCityId(city.getCityId());
             displayCity.setCityName(city.getCityName());
             displayCity.setCityEmission(city.getCityEmission());
+            displayCity.setYear(city.getYear());
             displayCities.add(displayCity);
         });
         return displayCities;
@@ -83,16 +84,16 @@ public class DisplayEmissionService {
         return transportRepository.getTransportSizeByModelAndBrand(newBrand, newModel);
     }
 
-//    public DisplayCar getCarEmissionInfoByCar(String brand, String mode, String size) {
-//        DisplayCar displayCar = new DisplayCar();
-//
-//        displayCar.setTransportId(transportRepository.findTransportByThree(brand,mode,size).getTransportId());
-//        displayCar.setTransportBrand(transportRepository.findTransportByThree(brand,mode,size).getTransportBrand());
-//        displayCar.setTransportEmission(transportRepository.findTransportByThree(brand,mode,size).getTransportEmission());
-//        displayCar.setTransportModel(transportRepository.findTransportByThree(brand,mode,size).getTransportModel());
-//        displayCar.setTransportSize(transportRepository.findTransportByThree(brand,mode,size).getTransportSize());
-//
-//
-//        return displayCar;
-//    }
+    public DisplayCar getCarEmissionInfoByCar(String brand, String mode, String size) {
+        DisplayCar displayCar = new DisplayCar();
+
+        displayCar.setTransportId(transportRepository.findTransportByThree(brand,mode,size).getTransportId());
+        displayCar.setTransportBrand(transportRepository.findTransportByThree(brand,mode,size).getTransportBrand());
+        displayCar.setTransportEmission(transportRepository.findTransportByThree(brand,mode,size).getTransportEmission());
+        displayCar.setTransportModel(transportRepository.findTransportByThree(brand,mode,size).getTransportModel());
+        displayCar.setTransportSize(transportRepository.findTransportByThree(brand,mode,size).getTransportSize());
+
+
+        return displayCar;
+    }
 }

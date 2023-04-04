@@ -19,7 +19,7 @@ public interface TransportRepository extends JpaRepository<Transport,Long> {
     @Query("SELECT DISTINCT transportSize from Transport where transportBrand=:newBrand and transportModel =:newModel")
     List<String> getTransportSizeByModelAndBrand(@Param("newBrand") String newBrand, @Param("newModel") String newModel);
 
-
-    //Transport findTransportByThree(String brand, String model, String size);
+    @Query("SELECT t from Transport t where t.transportBrand=:newBrand and t.transportModel=:newMode and t.transportSize=:newSize")
+    Transport findTransportByThree(String newBrand, String newMode, String newSize);
 
 }

@@ -56,7 +56,14 @@ public class EmissionController {
 
     @GetMapping(path = "/carSizeByBrandAndModel")
     public @ResponseBody Iterable<String> getCarSizeByBrandAndModel (@RequestParam String aBrand, @RequestParam String aModel) {
+
         return displayEmissionService.getCarSizeByBrandAndModel(aBrand,aModel);
+    }
+
+    @GetMapping(path = "/getTheCarInfo")
+    public @ResponseBody DisplayCar getACarInfo(@RequestParam String aBrand, @RequestParam String aModel, @RequestParam String aSize) {
+        System.out.println(displayEmissionService.getCarEmissionInfoByCar(aBrand,aModel,aSize));
+        return displayEmissionService.getCarEmissionInfoByCar(aBrand,aModel,aSize);
     }
 
     @PostMapping(path = "/calculateResultAdd")
