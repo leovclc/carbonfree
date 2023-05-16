@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Iterator;
 
 @Controller
+@CrossOrigin
 @RequestMapping("/emissions")
 public class EmissionController {
 
@@ -27,14 +28,17 @@ public class EmissionController {
         this.calculationRepository = calculationRepository;
     }
 
+
     @GetMapping(path = "/allCityName")
     public @ResponseBody Iterable<String> getAllCityName () {
-        System.out.println("hehe");
-        System.out.println(displayEmissionService.getAllCityName());
-        System.out.println();
+
         return displayEmissionService.getAllCityName();
     }
 
+    @GetMapping(path = "/getAllCityInfo")
+    public @ResponseBody Iterable<DisplayCity> getAllCityInfo() {
+        return displayEmissionService.getAllInfo();
+    }
 
 
 
